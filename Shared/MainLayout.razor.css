@@ -1,0 +1,50 @@
+.page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    flex: 1;
+    background-color:#ede6e3;
+}
+
+.top-row {
+    background-color:  #b6a8a2;
+    justify-content: flex-end;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+}
+
+    .top-row ::deep a, .top-row .btn-link {
+        white-space: nowrap;
+        margin-left: 2rem;
+    }
+    .top-row ::deep a:hover, .top-row .btn-link {
+        color: #938680;
+    }
+
+    .top-row a:first-child {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+   
+    name {
+        justify-content: flex-start;
+        display: flex;
+        align-items:flex-start;
+
+    }
+
+@media (max-width: 640.98px) {
+    .top-row:not(.auth) {
+        display: none;
+    }
+
+    .top-row.auth {
+        justify-content: space-between;
+    }
+
+
+}
