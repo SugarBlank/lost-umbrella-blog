@@ -11,9 +11,8 @@ name, a, .btn-link {
 h1 { 
     font-size:x-large;
     color: #574B45;
-    padding-top: 1rem;
-    padding-bottom: 1.45rem;
-    padding-left: 1rem;
+    padding-top: 1.25rem;
+    padding-left: 1.25rem;
 }
 
 h2
@@ -23,6 +22,7 @@ h2
     width:fit-content;
     color:#574b45;
     font-size:large;
+    margin-top: 3rem;
 }
 
 .btn-primary {
