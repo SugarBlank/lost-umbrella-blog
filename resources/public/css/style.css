@@ -1,0 +1,63 @@
+html,
+body {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #fbfaf9;
+  color: #1b1818;
+  font-size: 20px;
+  text-align: center;
+  line-height: 1.675;
+  text-rendering: optimizelegibility;
+}
+.navbar-start {
+  text-align: right;
+  border-bottom: 1px solid #9b9797;
+}
+div.content {
+  margin-right: 20em;
+  margin-left: 20em;
+}
+h1.title {
+  text-align: center;
+}
+h3 {
+  border-bottom: 1px solid #9b9797;
+}
+nav {
+  font-size: medium;
+  overflow: auto;
+  text-align:-moz-left;
+  margin-right: 20em;
+  margin-left: 20em;
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: italic;
+  font-weight: 400;
+  src: url(/assets/material-icons/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url(/assets/material-icons/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+       url(/assets/material-icons/iconfont/MaterialIcons-Regular.woff) format('woff'),
+       url(/assets/material-icons/iconfont/MaterialIcons-Regular.ttf) format('truetype');
+}
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+}
+
