@@ -1,16 +1,21 @@
 html,
 body {
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  background-color: #fbfaf9;
-  color: #1b1818;
-  font-size: 20px;
+font-family: Helvetica,sans-serif;
+  background-color: #f0f0f0;
+  color: #0f0f0f;
+  font-size: 18px;
   text-align: center;
   line-height: 1.675;
   text-rendering: optimizelegibility;
 }
 .navbar-start {
   text-align: right;
-  border-bottom: 1px solid #9b9797;
+  border-bottom: 1px solid #c49ec4;
+}
+strong 
+{
+    background-color: #ac8a8c;
+    
 }
 div.content {
   margin-right: 20em;
@@ -20,7 +25,16 @@ h1.title {
   text-align: center;
 }
 h3 {
-  border-bottom: 1px solid #9b9797;
+  border-bottom: 1px solid #c49ec4;
+}
+h2 {
+    text-align: left;
+}
+ul {
+    text-align: left;
+}
+il {
+    text-align: left;
 }
 nav {
   font-size: medium;
@@ -28,6 +42,9 @@ nav {
   text-align:-moz-left;
   margin-right: 20em;
   margin-left: 20em;
+}
+a {
+    color: #c49ec4;
 }
 
 @font-face {
@@ -60,4 +77,3 @@ nav {
   /* Support for Firefox. */
   -moz-osx-font-smoothing: grayscale;
 }
-
