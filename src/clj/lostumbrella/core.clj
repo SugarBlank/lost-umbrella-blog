@@ -1,9 +1,9 @@
-(ns lostumbrella.core
+(ns hanakumori.core
   (:require
-    [lostumbrella.handler :as handler]
-    [lostumbrella.nrepl :as nrepl]
+    [hanakumori.handler :as handler]
+    [hanakumori.nrepl :as nrepl]
     [luminus.http-server :as http]
-    [lostumbrella.config :refer [env]]
+    [hanakumori.config :refer [env]]
     [clojure.tools.cli :refer [parse-opts]]
     [clojure.tools.logging :as log]
     [mount.core :as mount])
@@ -25,6 +25,7 @@
   :start
   (http/start
     (-> env
+        (update :io-threads #(or % (* 2 (.availableProcessors (Runtime/getRuntime))))) 
         (assoc  :handler (handler/app))
         (update :port #(or (-> env :options :port) %))
         (select-keys [:handler :host :port])))
