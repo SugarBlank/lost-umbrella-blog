@@ -1,12 +1,12 @@
-(ns lostumbrella.handler
+(ns hanakumori.handler
   (:require
-    [lostumbrella.middleware :as middleware]
-    [lostumbrella.layout :refer [error-page]]
-    [lostumbrella.routes.home :refer [home-routes]]
+    [hanakumori.middleware :as middleware]
+    [hanakumori.layout :refer [error-page]]
+    [hanakumori.routes.home :refer [home-routes]]
     [reitit.ring :as ring]
     [ring.middleware.content-type :refer [wrap-content-type]]
     [ring.middleware.webjars :refer [wrap-webjars]]
-    [lostumbrella.env :refer [defaults]]
+    [hanakumori.env :refer [defaults]]
     [mount.core :as mount]))
 
 (mount/defstate init-app
