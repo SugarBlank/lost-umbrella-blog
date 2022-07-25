@@ -1,0 +1,15 @@
+Goal:
+Depending on the tags for a post, put it in a page that lists all the posts for a certain category
+(eg. Programming posts will go in the programming index)
+How to do it?
+Pages function returns a map with all the metadata associated with the key value (key value is the
+location of the file relative to the resources directory)
+
+Create a function that checks whether or not a post in the resources directory has the specified
+category
+(Will take the parameters [dir topic metadata(pages function)]
+then it will return a list of all the keys that have the specified category
+How will I do this?
+something along the lines of
+
+(filter #(= (:tags %) topic) metadata)
