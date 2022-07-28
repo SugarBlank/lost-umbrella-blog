@@ -1,5 +1,5 @@
 (ns hanakumori.html
-  (:require [hanakumori.metadata :as md]
+  (:require [hanakumori.metadata :as meta]
             [net.cgrand.enlive-html :as enlive]
             [clojure.string :as str]
             [hiccup.page :refer [html5]]
@@ -13,11 +13,11 @@
           [:meta {:charset "utf-8"}]
           [:meta {:name "viewport"
                   :content "width=device-width, initial-scale=1.0"}]
-          [:link {:type "text/css" :href "/css/style.css" :rel "stylesheet"}]
+          [:link {:type "text/css" :href "/public/css/style.css" :rel "stylesheet"}]
           [:body
            [:div {:class "header"}
             [:div {:class "name"}
-             [:a {:href "/"} "home"]
+             [:a {:href "/"} "hanakumori"]
              [:div {:class "header-right"}
               [:a {:href "posts-index.html"} "posts"]]]]
            page]
@@ -38,6 +38,6 @@
 
 (defn create-posts [topic metadata]
   (let [topic-title (create-title topic)
-        topic-info (md/filter-post-topic topic metadata)
-        topic-posts (md/metadata-to-links topic-info topic-title)]
+        topic-info (meta/filter-post-topic topic metadata)
+        topic-posts (meta/metadata-to-links topic-info topic-title)]
     insert-links topic-posts))
