@@ -18,5 +18,5 @@
 
 (defn filter-post-topic
   [topic metadata]
-  (let [tag-for-page (update-vals metadata #(dissoc % :raw-body :html-body))]
-    (into [] (for [[k v] tag-for-page :when (= (:tags v) topic)] v))))
+  (let [tag-for-page (update-vals metadata #(dissoc % :raw-body ))]
+    (into [] (for [[_ v] tag-for-page :when (= (:tags v) topic)] v))))
