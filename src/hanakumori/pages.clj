@@ -21,7 +21,7 @@
         fmt-posts (meta/md-to-html (map #(str/replace % #"(?<!index)\.html$" "") (keys posts)))
         posts-info (remove nil? (parse/parse-posts source-dir))
         html-paths (map key-to-html (keys posts))
-        html-content (map md/md-to-html-string (vals posts))
+        html-content (map #(md/md-to-html-string % :heading-anchors true) (vals posts))
         pages (zipmap fmt-posts posts-info)]
     {:home home-page
      :posts posts-info
