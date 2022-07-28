@@ -12,7 +12,7 @@
       (let [[uri] (re-matches #"(.*)\.md" (fs/file-name file))
             meta (edn/read rdr)
             raw-body (slurp rdr)
-            html-body (md/md-to-html-string raw-body :footnotes? true)]
+            html-body (md/md-to-html-string raw-body :heading-anchors true)]
         (into {:uri (key-to-html (fs/file-name (fs/path source-dir uri)))
                :date (str (java.time.LocalDate/of
                            (Integer/parseInt year)
