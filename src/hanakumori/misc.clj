@@ -3,6 +3,8 @@
 
 (def source-dir "resources/")
 
+(def public-dir "resources/")
+
 (defn year [] (.format (java.text.SimpleDateFormat. "yyyy") (new java.util.Date)))
 
 (def file-extensions #".*\.md$")
