@@ -5,7 +5,11 @@
 
 (def public-dir "build/")
 
-(defn year [] (.format (java.text.SimpleDateFormat. "yyyy") (new java.util.Date)))
+(defn year 
+  [] 
+  (.format
+   (java.text.SimpleDateFormat. "yyyy")
+   (new java.util.Date)))
 
 (def file-extensions #".*\.md$")
 
