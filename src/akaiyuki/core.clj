@@ -6,15 +6,15 @@
             [optimus.prime :as optimus]
             [optimus.optimizations :as optimizations]
             [optimus.export]
-            [optimus.strategies :refer [serve-live-assets]]
-            [ring.middleware.resource :refer [wrap-resource]]))
+            [optimus.strategies :refer [serve-live-assets]]))
 
-(defn create-site []
+(defn- create-site 
+  []
   (-> (pages/get-page source-dir)
       pages/format-links
       pages/format-pages))
 
-(defn get-assets
+(defn- get-assets
   []
   (assets/load-assets "public" [#".*\.jpg" #".*\.png"]))
 
@@ -25,7 +25,8 @@
    optimizations/all
    serve-live-assets))
 
-(defn export []
+(defn- export 
+  []
   (let [assets (optimizations/all (get-assets) {})
         pages (create-site)]
     (stasis/empty-directory! public-dir)
