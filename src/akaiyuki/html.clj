@@ -24,7 +24,8 @@
           [:footer {:role "contentinfo"}
            [:br
             "Copyright © " (year) " | "
-            [:span.credit [:a {:href "https://github.com/scourii/akaiyuki-blog"} "Source"]]]]]))
+            [:span.credit 
+             [:a {:href "https://github.com/scourii/akaiyuki-blog"} "Source"]]]]]))
 
 (defn insert-links
   [page links]
@@ -32,11 +33,13 @@
       (enlive/sniptest [:div#pageListDiv]
                        (enlive/html-content links))))
 
-(defn create-title [topic]
+(defn- create-title 
+  [topic]
   (let [link (str (str/lower-case topic) "-index.html")]
     [:a {:href link} topic]))
 
-(defn create-posts [topic metadata]
+(defn create-posts
+  [topic metadata]
   (let [topic-title (create-title topic)
         topic-info (meta/filter-post-topic topic metadata)
         topic-posts (meta/metadata-to-links topic-info topic-title)]
