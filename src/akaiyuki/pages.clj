@@ -2,9 +2,7 @@
   (:require [akaiyuki.html :as html]
             [stasis.core :as stasis]
             [markdown.core :as md]
-            [optimus.assets :as assets]
             [clojure.string :as str]
-            [optimus.optimizations :as optimizations]
             [akaiyuki.misc :refer [file-extensions key-to-html source-dir]]
             [akaiyuki.metadata :as meta]
             [akaiyuki.parsing :as parse]))
@@ -13,12 +11,11 @@
   [src]
   (stasis/slurp-directory src #".*\.css$"))
 
-(defn get-page [path]
+(defn get-page 
+  [path]
   (let [page-map (stasis/slurp-directory path file-extensions)
         home-page (md/md-to-html-string (get page-map "/index.md"))
         posts-home (md/md-to-html-string (get page-map "/posts-index.md"))
-        prog-home (md/md-to-html-string (get page-map "/programming-index.md"))
-        elec-home (md/md-to-html-string (get page-map "/electronics-index.md"))
         posts (apply dissoc page-map ["/index.md" "/posts-index.md" "/programming-index.md" "/electronics-index.md"])
         fmt-posts (meta/md-to-html (map #(str/replace % #"(?<!index)\.html$" "") (keys posts)))
         posts-info (remove nil? (parse/parse-posts source-dir))
@@ -26,22 +23,16 @@
         html-content (map #(md/md-to-html-string % :heading-anchors true) (vals posts))
         pages (zipmap fmt-posts posts-info)]
     {:home home-page
-     :posts posts-info
      :posts-home posts-home
-     :prog-home prog-home
-     :elec-home elec-home
-     :location (keys pages)
      :pages (zipmap html-paths html-content)
      :metadata pages}))
 
-(defn format-links [page-map]
+(defn format-links 
+  [page-map]
   (let [{home :home
          posts-home :posts-home
-         elec-home :elec-home
-         prog-home :prog-home
          metadata :metadata
-         pages :pages
-         posts :posts} page-map
+         pages :pages} page-map
         prog-links (html/create-posts "Programming" metadata)
         electronics-links (html/create-posts "Electronics" metadata)
         combined-links (html/insert-links posts-home (str prog-links electronics-links))]
