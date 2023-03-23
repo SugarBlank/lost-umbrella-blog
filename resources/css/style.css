@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'CozetteVector';
+    src: url('/public/fonts/CozetteVector.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 :root {
     --bg-color: #F3EAE9;
     --bold-color: #873E40;
@@ -20,6 +29,19 @@ img {
     width: 100%;
     height: fit-content;
 }
+}
+
+@media only screen and (max-width: 392px) {
+    html {
+        width: 355px;
+        line-height: 1.1;
+        margin: auto;
+        padding: 10px;
+        font-size: 90%;
+    }
+    img {
+        width: 100%
+    }
 }
 
 @media only screen and (min-width: 375px) {
@@ -47,9 +69,6 @@ img {
         width: 100%
     }
 }
-html {
-    font-family: "JetBrains Mono", monospace;
-}
 
 main {
     counter-reset: h2section;
@@ -58,6 +77,8 @@ main {
 }
 
 body {
+    font-family:NotoEmoji-Regular,CozetteVector,monospace!important;
+    font-weight:400;
     background-color: var(--bg-color);
     color: var(--text-color);
     counter-reset: h2section;
@@ -79,8 +100,12 @@ footer {
 
 img {
     max-width: 50em;
+    max-height: 40em;
+    width: 100%;
     padding-top: 1em;
     padding-bottom: 1em;
+    object-fit: cover;
+    object-position: top 40%;
 }
 
 code {
